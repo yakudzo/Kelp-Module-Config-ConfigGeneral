@@ -1,5 +1,5 @@
 {
-   "abstract" : "Blah blah blah",
+   "abstract" : "Config::General in your Kelp application",
    "author" : [
       "Konstantin Yakunin <twinhooker@gmail.com>"
    ],
@@ -37,6 +37,8 @@
       },
       "runtime" : {
          "requires" : {
+            "Config::General" : "0",
+            "Kelp" : "0",
             "perl" : "5.008005"
          }
       },
