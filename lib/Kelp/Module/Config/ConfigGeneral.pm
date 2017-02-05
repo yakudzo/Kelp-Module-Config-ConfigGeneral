@@ -4,7 +4,7 @@ use 5.008_005;
 use Kelp::Base 'Kelp::Module::Config';
 use Config::General;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 attr ext => 'conf';
 
@@ -44,7 +44,7 @@ __END__
 
 =head1 NAME
 
-Kelp::Module::Config::ConfigGeneral - Config::General in your Kelp application
+Kelp::Module::Config::ConfigGeneral - L<Config::General> as config module for your Kelp applications.
 
 =head1 SYNOPSIS
 
@@ -55,11 +55,18 @@ Kelp::Module::Config::ConfigGeneral - Config::General in your Kelp application
 
 =head1 DESCRIPTION
 
-This module provides support of L<Config::General> in your L<Kelp> applications.
+This module provides support of L<Config::General> as your C<Kelp::Module::Config> module.
 
-Because L<Config::General> provides key/value interface you are not able to create array of arrays for your L<Kelp::Module::Logger> configuration. This module does it for you.
+L<Config::General> module is loaded with following configuration options:
+
+    -ForceArray      => 1,
+    -IncludeAgain    => 1,
+    -InterPolateVars => 1,
+
+Because L<Config::General> provides key/value interface you are not able to create array of arrays for your default L<Kelp::Module::Logger> configuration. This module does it for you.
 
 Example:
+
     modules = [ Logger ]
     
     <modules_init Logger>
@@ -77,6 +84,33 @@ Example:
          binmode   :encoding(UTF-8)
       </outputs>
     </modules_init>
+
+    becomes:
+
+    {
+        modules => [ 'Logger' ],
+    },
+    {
+        modules_init => {
+            Logger => [
+                [
+                    'Screen',
+                    name      => 'debug',
+                    min_level => 'debug',
+                    newline   => 1
+                    binmode   => ':encoding(UTF-8)'
+                ], [
+                    'Screen',
+                    name      => 'error',
+                    min_level => 'error',
+                    newline   => 1,
+                    stderr    => 1,
+                    binmode   => ':encoding(UTF-8)'
+                ]
+            ],
+        }
+    }
+
 
 =head1 AUTHOR
 

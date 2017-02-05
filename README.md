@@ -1,6 +1,6 @@
 # NAME
 
-Kelp::Module::Config::ConfigGeneral - Config::General in your Kelp application
+Kelp::Module::Config::ConfigGeneral - [Config::General](https://metacpan.org/pod/Config::General) as config module for your Kelp applications.
 
 # SYNOPSIS
 
@@ -11,13 +11,20 @@ Kelp::Module::Config::ConfigGeneral - Config::General in your Kelp application
 
 # DESCRIPTION
 
-This module provides support of [Config::General](https://metacpan.org/pod/Config::General) in your [Kelp](https://metacpan.org/pod/Kelp) applications.
+This module provides support of [Config::General](https://metacpan.org/pod/Config::General) as your `Kelp::Module::Config` module.
 
-Because [Config::General](https://metacpan.org/pod/Config::General) provides key/value interface you are not able to create array of arrays for your [Kelp::Module::Logger](https://metacpan.org/pod/Kelp::Module::Logger) configuration. This module does it for you.
+[Config::General](https://metacpan.org/pod/Config::General) module is loaded with following configuration options:
+
+    -ForceArray      => 1,
+    -IncludeAgain    => 1,
+    -InterPolateVars => 1,
+
+Because [Config::General](https://metacpan.org/pod/Config::General) provides key/value interface you are not able to create array of arrays for your default [Kelp::Module::Logger](https://metacpan.org/pod/Kelp::Module::Logger) configuration. This module does it for you.
 
 Example:
-    modules = \[ Logger \]
 
+    modules = [ Logger ]
+    
     <modules_init Logger>
       <outputs Screen>
          name      debug
@@ -33,6 +40,32 @@ Example:
          binmode   :encoding(UTF-8)
       </outputs>
     </modules_init>
+
+    becomes:
+
+    {
+        modules => [ 'Logger' ],
+    },
+    {
+        modules_init => {
+            Logger => [
+                [
+                    'Screen',
+                    name      => 'debug',
+                    min_level => 'debug',
+                    newline   => 1
+                    binmode   => ':encoding(UTF-8)'
+                ], [
+                    'Screen',
+                    name      => 'error',
+                    min_level => 'error',
+                    newline   => 1,
+                    stderr    => 1,
+                    binmode   => ':encoding(UTF-8)'
+                ]
+            ],
+        }
+    }
 
 # AUTHOR
 
