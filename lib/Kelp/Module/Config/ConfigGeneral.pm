@@ -44,7 +44,7 @@ __END__
 
 =head1 NAME
 
-Kelp::Module::Config::ConfigGeneral - L<Config::General> as config module for your Kelp applications.
+Kelp::Module::Config::ConfigGeneral - DEPRICATED !!!!!!!!! L<Config::General> as config module for your Kelp applications.
 
 =head1 SYNOPSIS
 
@@ -54,6 +54,9 @@ Kelp::Module::Config::ConfigGeneral - L<Config::General> as config module for yo
     $app->run;
 
 =head1 DESCRIPTION
+
+DEPRICATED!!!
+Module has moved to L<Kelp::Module::Config::General>.
 
 This module provides support of L<Config::General> as your C<Kelp::Module::Config> module.
 
