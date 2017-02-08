@@ -4,7 +4,7 @@ use 5.008_005;
 use Kelp::Base 'Kelp::Module::Config';
 use Config::General;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 attr ext => 'conf';
 
