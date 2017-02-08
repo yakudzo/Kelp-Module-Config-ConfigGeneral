@@ -1,5 +1,5 @@
 {
-   "abstract" : "L<Config::General> as config module for your Kelp applications.",
+   "abstract" : "DEPRICATED !!!!!!!!! L<Config::General> as config module for your Kelp applications.",
    "author" : [
       "Konstantin Yakunin <twinhooker@gmail.com>"
    ],

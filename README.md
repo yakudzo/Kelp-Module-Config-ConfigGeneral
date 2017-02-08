@@ -1,6 +1,6 @@
 # NAME
 
-Kelp::Module::Config::ConfigGeneral - [Config::General](https://metacpan.org/pod/Config::General) as config module for your Kelp applications.
+Kelp::Module::Config::ConfigGeneral - DEPRICATED !!!!!!!!! [Config::General](https://metacpan.org/pod/Config::General) as config module for your Kelp applications.
 
 # SYNOPSIS
 
@@ -10,6 +10,9 @@ Kelp::Module::Config::ConfigGeneral - [Config::General](https://metacpan.org/pod
     $app->run;
 
 # DESCRIPTION
+
+DEPRICATED!!!
+Module has moved to [Kelp::Module::Config::General](https://metacpan.org/pod/Kelp::Module::Config::General).
 
 This module provides support of [Config::General](https://metacpan.org/pod/Config::General) as your `Kelp::Module::Config` module.
 
